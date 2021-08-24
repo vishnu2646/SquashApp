@@ -38,6 +38,7 @@ export default function Otp({status,statusChange,pushToStorage,otpForm,setOtpFor
                                 required
                                 name="num1"
                                 onChange={handleChange}
+                                maxLength="1"
                             />
                         </div>
                         <div className="form-group">
@@ -48,6 +49,7 @@ export default function Otp({status,statusChange,pushToStorage,otpForm,setOtpFor
                                 required
                                 name="num2"
                                 onChange={handleChange}
+                                maxLength="1"
                             />
                         </div>
                         <div className="form-group">
@@ -58,6 +60,7 @@ export default function Otp({status,statusChange,pushToStorage,otpForm,setOtpFor
                                 required
                                 name="num3"
                                 onChange={handleChange}
+                                maxLength="1"
                             />
                         </div>
                         <div className="form-group">
@@ -68,6 +71,7 @@ export default function Otp({status,statusChange,pushToStorage,otpForm,setOtpFor
                                 required
                                 name="num4"
                                 onChange={handleChange}
+                                maxLength="1"
                             />
                         </div>
                         <div className="form-group">
@@ -78,6 +82,7 @@ export default function Otp({status,statusChange,pushToStorage,otpForm,setOtpFor
                                 required
                                 name="num5"
                                 onChange={handleChange}
+                                maxLength="1"
                             />
                         </div>
                     </div>
