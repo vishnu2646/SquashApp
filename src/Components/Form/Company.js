@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Company({status,progress,statusChange}) {
+export default function Company({ status, statusChange, setDetailsForm, detailsForm }) {
 
     const next = (event) => {
         event.preventDefault();
-        statusChange(3)
-        onAdd(data);
-        console.log(data)
-    }
+        statusChange(3);
+        // localStorage.setItem('company',JSON.stringify(detailsForm))
+        console.log(detailsForm)
+    };
+  
+    // const [detailsForm, setDetailsForm] = useState({
+    //     img: null,
+    //     company: "",
+    //     email: "",
+    //     job: "",
+    //     experience: "",
+    //     accept: "",
+    // });
 
-    const data = [];
-    const[img,setImg] = useState('');
-    const[company,setCompany] = useState('')
-    const [email,setEmail] = useState('')
-    const [job,setJob] = useState('')
-    const [experience,setExperience] = useState('')
-    const [accept,setAccept] = useState('')
-
-    const onAdd = (data) => {
-        data.push({img,company,email,job,experience,accept})
+    const handleFormChange = (event) =>{
+        setDetailsForm({
+            ...detailsForm,
+            [event.target.name]:event.target.value
+        })
     }
 
     return (
@@ -31,7 +35,16 @@ export default function Company({status,progress,statusChange}) {
             <div className="form mt-3">
                 <form className="rform" onSubmit={next}>
                     <div className="form-group">
-                        <input type="file" autoComplete="off" required onChange={(e) => setImg(e.target.value)}/>
+                        <input
+                            type="file"
+                            autoComplete="off"
+                            required
+                            name="img"
+                            onChange={(e) => setDetailsForm({
+                                ...detailsForm,
+                                img:e.target.files[0]
+                            })}
+                        />
                         <label className="file-label">Upload your company logo</label>
                     </div>
                     <div className="form-group">
@@ -40,7 +53,8 @@ export default function Company({status,progress,statusChange}) {
                             type="text"
                             className="form-control"
                             placeholder="Enter Company Name"
-                            onChange={(e) => setCompany(e.target.value)}
+                            onChange={handleFormChange}
+                            name="company"
                         />
                     </div>
                     <div className="form-group">
@@ -49,7 +63,8 @@ export default function Company({status,progress,statusChange}) {
                             type="email"
                             className="form-control"
                             placeholder="Enter Email"
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={handleFormChange}
+                            name="email"
                         />
                     </div>
                     <div className="form-group">
@@ -58,7 +73,8 @@ export default function Company({status,progress,statusChange}) {
                             type="text"
                             className="form-control"
                             placeholder="Enter Job Title"
-                            onChange={(e) => setJob(e.target.value)}
+                            onChange={handleFormChange}
+                            name="job"
                         />
                     </div>
                     <div className="form-group">
@@ -67,7 +83,8 @@ export default function Company({status,progress,statusChange}) {
                             type="text"
                             className="form-control"
                             placeholder="Enter Experience"
-                            onChange={(e) => setExperience(e.target.value)}
+                            onChange={handleFormChange}
+                            name="experience"
                         />
                     </div>
                     <div className="form-check">
@@ -75,15 +92,28 @@ export default function Company({status,progress,statusChange}) {
                             type="checkbox"
                             className="form-check-input"
                             id="exampleCheck1"
-                            onChange={(e) => setAccept(e.target.value)}
+                            onChange={handleFormChange}
+                            name="accept"
                         />{" "}
                         I accept the
                         <label className="form-check-label">Terms and Condition</label>
                     </div>
-                    <button className="btn mr-2" type="submit">
+                    <button 
+                        className="btn mr-2" 
+                        type="submit" 
+                    >
                         Back
                     </button>
-                    <button className="btn btn1 ml-1" type="submit">
+                    <button 
+                        className="btn btn1 ml-1" 
+                        type="submit" 
+                        disabled={
+                            !((detailsForm.company.length > 0) && 
+                            (detailsForm.email.length > 0) && 
+                            (detailsForm.accept.length > 0) && 
+                            (detailsForm.job.length > 0)&& 
+                            (detailsForm.experience.length > 0)
+                        )}>
                         Send OTP
                     </button>
                 </form>

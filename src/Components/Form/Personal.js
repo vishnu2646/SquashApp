@@ -1,23 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Personal = ({status,statusChange}) => {
-
+const Personal = ({status,statusChange,personalForm,setPersonalForm}) => {
+    
     const next = (event) => {
         event.preventDefault();
         statusChange(2)
-        onAdd(data)
     }
 
-    const data = [];
-    const [name,setName] = useState('')
-    const [gender,setGender] = useState('')
-    const [country,setCountry] = useState('')
-    const [palce,setPlace] = useState('')
-    const [phone,setPhone] = useState('')
-
-    const onAdd = (data) => {
-        data.push({name,gender,country,palce,phone})
-        console.log(data)
+    const handleChange = (event) => {
+        setPersonalForm({
+            ...personalForm,
+            [event.target.name]:event.target.value
+        })
     }
 
     return (
@@ -37,7 +31,8 @@ const Personal = ({status,statusChange}) => {
                             placeholder="Enter email"
                             autoComplete="off"
                             required
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={handleChange}
+                            name="fullname"
                         />
                     </div>
                     <div className="form-group">
@@ -45,19 +40,19 @@ const Personal = ({status,statusChange}) => {
                         <br />
                         <div className="cat action">
                             <label>
-                                <input type="checkbox" value="male" onChange={(e) => setGender(e.target.value)}/>
+                                <input type="radio" value="male"  className="form-control" name="gender" onChange={handleChange} required/>
                                 <span>Male</span>
                             </label>
                         </div>
                         <div className="cat action">
                             <label>
-                                <input type="checkbox" value="female" onChange={(e) => setGender(e.target.value)}/>
+                                <input type="radio" value="female"  className="form-control" name="gender" onChange={handleChange} />
                                 <span>Female</span>
                             </label>
                         </div>
                         <div className="cat action">
                             <label>
-                                <input type="checkbox" value="other" onChange={(e) => setGender(e.target.value)}/>
+                                <input type="radio" value="other" className="form-control"  name="gender" onChange={handleChange} />
                                 <span>Other</span>
                             </label>
                         </div>
@@ -66,22 +61,24 @@ const Personal = ({status,statusChange}) => {
                     <br />
                     <div className="form-group">
                         <label>Country</label>
-                        <select className="form-control" onChange={(e) => setCountry(e.target.value)}>
-                            <option>India</option>
-                            <option>America</option>
-                            <option>Russia</option>
-                            <option>China</option>
-                            <option>Japan</option>
+                        <select className="form-control" onChange={handleChange} name="country" required>
+                            <option value="" disabled selected>Select Country</option>
+                            <option value="India">India</option>
+                            <option value="America">America</option>
+                            <option value="Russia">Russia</option>
+                            <option value="China">China</option>
+                            <option value="Japan">Japan</option>
                         </select>
                     </div>
                     <div className="form-group">
                         <label>State</label>
-                        <select className="form-control" onChange={(e) => setPlace(e.target.value)}>
-                            <option>Tamil Nadu</option>
-                            <option>Kerala</option>
-                            <option>Karnataka</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Telengana</option>
+                        <select className="form-control" onChange={handleChange} name="place" required>
+                            <option value="" disabled selected>Select State</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Telengana">Telengana</option>
                         </select>
                     </div>
                     <div className="form-group">
@@ -96,11 +93,20 @@ const Personal = ({status,statusChange}) => {
                                 id="inlineFormInputGroup"
                                 placeholder="Phone Number"
                                 required
-                                onChange={(e) => setPhone(e.target.value)}
+                                onChange={handleChange}
+                                name="phone"
                             />
                         </div>
                     </div>
-                    <button className="btn btn-block" type="submit">
+                    <button 
+                        className="btn btn-block" 
+                        type="submit" 
+                        disabled={!((personalForm.fullname.length > 0) && 
+                            (personalForm.gender.length > 0) && 
+                            (personalForm.country.length > 0) && 
+                            (personalForm.place.length > 0) && 
+                            (personalForm.phone.length > 0))
+                        }>
                         Next
                     </button>
                 </form>
