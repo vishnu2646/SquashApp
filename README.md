@@ -42,6 +42,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 3. Each filed Should Contain Only  `one digit`
 4. Once all The Fields are Filed The Verify Button Gets Enabled.
 
-## Loacl Storage
+## Local Storage
 Once The Verify Button is Clicked The Personal and Company Details Given By The User is Stored in the Local Storage
 `ctrl + shift + i -> Application -> Local Storage` in Windows or `⌘ + Shift + C -> Application -> Local Storage` or `F12 + Application -> Local Storage` in Mac 
