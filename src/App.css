@@ -1,38 +1,218 @@
-.App {
+body{
+    background-color:#F9FAFA;
+}
+
+.nav-tab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#2E4B64;
+    padding: 10px;
+    color: #FFF;
+}
+
+.tab-active, 
+.tab-inactive,
+.tab-completed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0px 5px;
+}
+
+.tab-active > .text{
+    font-size: 14px;
+    color: #FFF;
+    padding-left: 15px;
+    margin-right: 65px;
+}
+
+.tab-inactive > .text{
+    font-size: 14px;
+    color: #C0C9D0;
+    padding-left: 15px;
+    margin-right: 65px;
+}
+
+.tab-completed > .text{
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+    padding-left: 15px;
+    margin-right: 65px;
+}
+
+.tab-active > .number{
+    font-size: 14px;
+    color: #A2AEB7;
+    padding-left: 5px;
+    background-color: #ED5901;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    text-align: center;
+}
+
+.tab-inactive > .number{
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+    padding-left: 5px;
+    background-color: #28435A;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    text-align: center;
+}
+
+.tab-completed > .number{
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+    padding-left: 5px;
+}
+
+.tabs{
+    display: flex;
+    cursor: pointer;
+}
+
+.tabs .number{
+    margin: 5px;
+}
+
+.active-tab button{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 8px;
+    background-color: orangered;
+    border: 1px solid orangered;
+}
+
+.tabs button{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 8px;
+}
+
+.tabs .tab-title{
+    margin: 5px;
+    padding: 10px;
+}
+
+.content{
+    display: none;
+}
+
+.active-content{
+    display: block;
+}
+
+.titles{
+    text-align: center;
+    margin: 10px;
+}
+
+.stitles{
+    text-align: center;
+    margin: 0;
+}
+
+.form{
+    background-color: #FFF;
+    padding: 20px;
+    width: 550px;
+    margin: 0 auto;
+}
+
+.btn-block{
+    background-color: orangered;
+    color: #FFF;
+    outline: none;
+}
+
+.form-check-label{
+    margin-left: 2px;
+    color: orangered;
+    font-weight: bold;
+}
+
+.btn1{
+    background-color: orangered;
+    border-color: 1px solid orangered;
+    color: #fff;
+    width: 85%;
+}
+
+.file-label{
+    color: orangered;
+}
+
+.digit{
+    display: flex;
+    justify-content: space-between;
+}
+
+.digit input[type="text"]{
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.footer{
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.footer-link{
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+.footer-link span{
+    text-align: center;
+    color: orangered;
+}
+
+/*ckeck box style */
+
+.cat{
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  overflow: hidden;
+  float: left;
+}
+
+.cat label {
+  float: left; 
+  width: 90px;
+}
+
+.cat label span {
   text-align: center;
+  padding: 3px 0;
+  display: block;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cat label input {
+  position: absolute;
+  display: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.cat label input + span{
+    color: #000;
+    border:1px solid #ddd;
+    margin: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.action input:checked + span{
+    background-color: #f7591b21;
+    color: #F75A1B;
+    font-weight: 600;
 }
