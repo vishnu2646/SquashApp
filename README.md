@@ -46,4 +46,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Once The Verify Button is Clicked The Personal and Company Details Given By The User is Stored in the Local Storage
 `ctrl + shift + i -> Application -> Local Storage` in Windows or `⌘ + Shift + C -> Application -> Local Storage` or `F12 + Application -> Local Storage` in Mac 
 
+## Hosted
 The Site is Hosted on Netlify [Tap To View](https://6124d6c80f7f6a000815a73c--musing-hopper-13c028.netlify.app/)
